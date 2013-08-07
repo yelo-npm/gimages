@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+var	gimages = require('../app.js')
+,	args = process.argv.slice()
+,	max = 10
+,	dir = '.'
+;
+
+function usage(){
+	console.log('\n'
+		+'gimages; a stupid script to download images\n'
+		+'you can specify search terms, maximum number of downloads,\n'
+		+'and destination directory. The terms are mandatory,\n'
+		+'the rest is optional (defaults to 10 and "./")\n'
+		+'\n'
+		+'usage:      gimages [maxDownloads] searchTerms[...] directory/\n'
+		+'example 1:  gimages 5 duck\n'
+		+'example 2:  gimages zorro\n'
+		+'example 3:  gimages 300 fez my_images/\n'
+		+'note: the directory MUST finish with a slash and must exist\n'
+	);
+	process.exit(1);
+}
+
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function check(){
+	if(!args || !args.length){return usage();}
+}
+
+args.shift(); //removing node binary
+args.shift(); //removing app.js itself
+check();
+if(isNumber(args[0])){max = parseInt(args.shift());}
+check();
+if(args[args.length-1].length && args[args.length-1][args[args.length-1].length-1] == '/'){
+	dir = args.pop();
+}
+check();
+gimages(args,max,dir);
