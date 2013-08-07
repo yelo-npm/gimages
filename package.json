@@ -1,0 +1,32 @@
+{
+  "name": "gimages",
+  "version": "0.0.1",
+  "description": "command line downloader for google images",
+  "main": "app.js",
+  "dependencies": {
+    "mkdirp": "~0.3.5",
+    "progress": "~1.0.0",
+    "request": "~2.25.0",
+    "request-progress": "~0.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yelo-npm/gimages.git"
+  },
+  "keywords": [
+    "google",
+    "images",
+    "downloader",
+    "command",
+    "line"
+  ],
+  "author": "xananax@yelostudio.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yelo-npm/gimages/issues"
+  }
+}
